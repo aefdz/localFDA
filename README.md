@@ -51,7 +51,7 @@ functions_plot <- ggplot(df_functions) +
 functions_plot
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-3-1.png" style="display:block; margin:auto;" />
+<img class="center" src="README_files/figure-markdown_github/unnamed-chunk-3-1.png" style="display:block; margin:auto;" />
 
 ### Compute *kth empirical localization processes*
 
