@@ -1,50 +1,38 @@
----
-title: "Localization processes for Functional Data Analysis"
-author: "Antonio Elías"
-date: "22/07/2020"
-output:
-  md_document:
-    variant: markdown_github
----
-
-```{r setup, include=FALSE, message = FALSE, warning = FALSE, fig.align = 'center'}
-knitr::opts_chunk$set(echo = TRUE)
-
-library(ggplot2)
-library(patchwork)
-library(dplyr)
-```
-
 localFDA
-=======
+========
 
 <!-- badges: start -->
+
 [![License](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
 
-## Overview
+Overview
+--------
 
-Software companion for the paper “Localization processes for functional data analysis” (Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, 2020). 
+Software companion for the paper “Localization processes for functional
+data analysis” (Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, 2020).
 
-It implements the localization processes and localization distances. 
+It implements the localization processes and localization distances.
 
-## Installation 
+Installation
+------------
 
-```{r, eval = FALSE}
+``` r
 #install the package
 devtools::install_github("aefdz/localFDA")
-
 ```
 
-```{r}
+``` r
 #load the package
 library(localFDA)
-
 ```
-## Test usage
+
+Test usage
+----------
+
 Load the example data and plot it.
 
-```{r, fig.align="center"}
+``` r
 data(exampleData)
 n <- ncol(X)
 p <- nrow(X)
@@ -63,16 +51,21 @@ functions_plot <- ggplot(df_functions) +
 functions_plot
 ```
 
+<img src="README_files/figure-markdown_github/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+
 ### Compute *kth empirical localization processes*
+
 Empirical version of Equation (1) of the paper. For one focal,
-```{r}
+
+``` r
 focal <- "1"
 
 localizarionProcesses_focal <- localizationProcesses(X, focal)$lc
 ```
 
-Plot localization processes of order $1, 50, 100$ and $200$:
-```{r, fig.align="center"}
+Plot localization processes of order 1, 50, 100 and 200:
+
+``` r
 df_lc <- data.frame(k = rep(colnames(localizarionProcesses_focal), each = p),
                            y = c(localizarionProcesses_focal),
                            x = rep(t, n-1)
@@ -89,19 +82,26 @@ for(i in 1:4){
 }
 
 wrap_plots(lc_plots)
-
 ```
 
+<img src="README_files/figure-markdown_github/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+
 ### Compute *kth empirical localization distances*
+
 Equation (18) of the paper. For one focal,
-```{r}
+
+``` r
 localizationDistances_focal <- localizationDistances(X, focal)
 
 head(localizationDistances_focal)
 ```
 
+    ##          k=1          k=2          k=3          k=4          k=5          k=6 
+    ## 0.0005082926 0.0011346495 0.0017636690 0.0023955745 0.0030095117 0.0035089220
+
 Plot the localization distances:
-```{r, fig.align="center"}
+
+``` r
 df_ld <- data.frame(k = names(localizationDistances_focal),
                            y = localizationDistances_focal,
                            x = 1:c(n-1)
@@ -114,17 +114,29 @@ ldistances_plot <- ggplot(df_ld, aes(x = x, y = y)) + geom_point() +
 ldistances_plot
 ```
 
-### Sample $\mu$ and $\sigma$ 
+<img src="README_files/figure-markdown_github/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
-```{r}
+### Sample *μ* and *σ*
+
+``` r
 localizationStatistics_full <- localizationStatistics(X, robustify = TRUE)
 
 #See the mean and sd estimations for k = 1, 100, 200, 400, 600
 
 localizationStatistics_full$trim_mu[c(1, 100, 200, 400, 600)]
+```
+
+    ## NULL
+
+``` r
 localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
 ```
 
-## References
+    ##          k=1        k=100        k=200        k=400        k=600 
+    ## 0.0005326429 0.0329170846 0.0490732397 0.0686018224 0.0806314699
 
-Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted)
+References
+----------
+
+Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization
+processes for functional data analysis (submitted)
