@@ -8,8 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE, message = FALSE, warning = FALSE, fig.align = 'center'}
-knitr::opts_chunk$set(echo = TRUE,
-                      out.extra = 'style="display:block; margin:auto;"')
+knitr::opts_chunk$set(echo = TRUE)
 
 library(ggplot2)
 library(patchwork)
@@ -55,7 +54,9 @@ df_functions <- data.frame(ids = rep(colnames(X), each = p),
                            )
 
 functions_plot <- ggplot(df_functions) + 
-  geom_line(aes(x = x, y = y, group = ids, color = ids), color = "black", alpha = 0.25) + xlab("t") + theme(legend.position = "none")
+                  geom_line(aes(x = x, y = y, group = ids, color = ids), 
+                            color = "black", alpha = 0.25) + 
+                  xlab("t") + theme(legend.position = "none")
 
 
 functions_plot
@@ -131,6 +132,52 @@ localizationStatistics_full <- localizationStatistics(X, robustify = TRUE)
 
 localizationStatistics_full$trim_mean[c(1, 100, 200, 400, 600)]
 localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
+```
+
+### Classification
+
+```{r}
+data("classificationData")
+
+ids_training <- sample(colnames(X), 90)
+ids_testing <- setdiff(colnames(X), ids_training)
+
+trainingSample <- X[,ids_training]
+testSample <- X[,ids_testing]; colnames(testSample) <- NULL #blind 
+classNames <- c("G1", "G2")
+
+classification_results <- localizationClassifier(trainingSample, testSample, classNames, k_opt = 3)
+
+checking <- data.frame(real_classs = ids_testing, 
+                      predicted_class =classification_results$test$predicted_class)
+```
+
+### Outlier detection
+
+```{r}
+X <- data(outlierData)
+
+outliers <- outlierLocalizationDistance(X, local_rule = 0.95, whisker_rule = 1.5)
+
+outliers$outliers_ld_rule
+```
+
+Plot results,
+
+```{r}
+df_functions <- data.frame(ids = rep(colnames(X), each = nrow(X)),
+                           y = c(X),
+                           x = rep(seq(from = 0, to = 1, length.out = nrow(X)), ncol(X)))
+                           
+
+functions_plot <- ggplot(df_functions) + 
+                  geom_line(aes(x = x, y = y, group = ids), 
+                            color = "black") + 
+                  xlab("t") + 
+  theme(legend.position = "bottom")+
+                  geom_line(data = df_functions[df_functions$ids %in% outliers$outliers_ld_rule,], aes(x = x, y = y, group = ids, color = ids), size = 1) +
+  guides(color = guide_legend(title="Detected outliers"))
+
 ```
 
 ## References
