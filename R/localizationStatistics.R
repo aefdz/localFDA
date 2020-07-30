@@ -10,7 +10,9 @@
 #'
 #' @examples
 #' data(exampleData)
-#' localizationDistances_1 <- localizationDistances(X, y0 = "1")
+#' localizationStatistics_full <- localizationStatistics(X, robustify = TRUE)
+#' localizationStatistics_full$trim_mean[c(1, 100, 200, 400, 600)]
+#' localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'
@@ -26,7 +28,7 @@ localizationStatistics <- function(y, robustify = TRUE, whisker_rule){
   rownames(localizationDistances_all) <- colnames(y)
   colnames(localizationDistances_all) <- paste0("k=", 1:c(dim(y)[2]-1))
 
-  if( robustify == TRUE){
+  if(robustify == TRUE){
     if(missing(whisker_rule)){whisker_rule <- 3}
 
     outliers <- unique(unlist(apply(localizationDistances_all, 2, function(x) which(x %in% boxplot(x, plot = FALSE, range = whisker_rule)$out))))
