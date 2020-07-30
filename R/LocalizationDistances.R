@@ -7,8 +7,7 @@
 #' @return a vector of length (n-1), being the localization distance of its corresponding order.
 #'
 #' @examples
-#' data(exampleData)
-#' localizationDistances_1 <- localizationDistances(X, y0 = "1")
+#' localizationDistances_1 <- localizationDistances(exampleData, y0 = "1")
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

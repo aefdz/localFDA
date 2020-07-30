@@ -15,8 +15,13 @@
 #' likelihood in each group and the predicted_class).
 #'
 #' @examples
-#' data(exampleData)
-#' classification_results <- localizationClassifier(trainingSample, testSample, classNames, k_opt, g_pi)
+#' X <- classificationData
+#' ids_training <- sample(colnames(X), 90)
+#' ids_testing <- setdiff(colnames(X), ids_training)
+#' trainingSample <- X[,ids_training]
+#' testSample <- X[,ids_testing]; colnames(testSample) <- NULL #blind
+#' classNames <- c("G1", "G2")
+#' classification_results <- localizationClassifier(trainingSample, testSample, classNames, k_opt = 3)
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

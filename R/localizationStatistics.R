@@ -9,8 +9,7 @@
 #' the estimated mean (mean) and standard deviation (sd).
 #'
 #' @examples
-#' data(exampleData)
-#' localizationStatistics_full <- localizationStatistics(X, robustify = TRUE)
+#' localizationStatistics_full <- localizationStatistics(exampleData, robustify = TRUE)
 #' localizationStatistics_full$trim_mean[c(1, 100, 200, 400, 600)]
 #' localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
 #'

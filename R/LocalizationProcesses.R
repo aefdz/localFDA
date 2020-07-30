@@ -7,8 +7,7 @@
 #' @return a list with one element, \code{lc}, a matrix of size p x (n-1), being the (n-1) columns the localization processes of its corresponding order.
 #'
 #' @examples
-#' data(exampleData)
-#' localizationProcesses_1 <- localizationProcesses(X, y0 = "1")
+#' localizationProcesses_1 <- localizationProcesses(exampleData, y0 = "1")
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

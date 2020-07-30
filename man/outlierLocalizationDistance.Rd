@@ -23,9 +23,9 @@ localization distances of order kth. Default value is 3.}
 Compute the localization distances of order k of the curve \code{y0}.
 }
 \examples{
-data(outliersData)
-outliers <- outlierLocalizationDistance(X, local_rule = 0.9, whisker_rule = 3)
+outliers <- outlierLocalizationDistance(outliersData, local_rule = 0.9, whisker_rule = 3)
 outliers$outliers_ld_rule
+
 }
 \references{
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).

@@ -18,8 +18,7 @@ a list with one element, \code{lc}, a matrix of size p x (n-1), being the (n-1) 
 Compute the localization processes of order k of the curve \code{y0}.
 }
 \examples{
-data(exampleData)
-localizationProcesses_1 <- localizationProcesses(X, y0 = "1")
+localizationProcesses_1 <- localizationProcesses(exampleData, y0 = "1")
 
 }
 \references{
