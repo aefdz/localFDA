@@ -22,6 +22,9 @@ Installation
 devtools::install_github("aefdz/localFDA")
 ```
 
+    ## Skipping install of 'localFDA' from a github remote, the SHA1 (95b87d48) has not changed since last install.
+    ##   Use `force = TRUE` to force installation
+
 ``` r
 #load the package
 library(localFDA)
@@ -33,7 +36,7 @@ Test usage
 Load the example data and plot it.
 
 ``` r
-data(exampleData)
+X <- exampleData
 n <- ncol(X)
 p <- nrow(X)
 t <- as.numeric(rownames(X))
@@ -45,13 +48,15 @@ df_functions <- data.frame(ids = rep(colnames(X), each = p),
                            )
 
 functions_plot <- ggplot(df_functions) + 
-  geom_line(aes(x = x, y = y, group = ids, color = ids), color = "black", alpha = 0.25) + xlab("t") + theme(legend.position = "none")
+                  geom_line(aes(x = x, y = y, group = ids, color = ids), 
+                            color = "black", alpha = 0.25) + 
+                  xlab("t") + theme(legend.position = "none")
 
 
 functions_plot
 ```
 
-<img align="center" src="README_files/figure-markdown_github/unnamed-chunk-3-1.png" />
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ### Compute *kth empirical localization processes*
 
@@ -88,7 +93,7 @@ for(i in 1:4){
 wrap_plots(lc_plots)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-5-1.png" style="display:block; margin:auto;" />
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 ### Compute *kth empirical localization distances*
 
@@ -120,7 +125,7 @@ ldistances_plot <- ggplot(df_ld, aes(x = x, y = y)) +
 ldistances_plot
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-7-1.png" style="display:block; margin:auto;" />
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 ### Sample *μ* and *σ*
 
@@ -142,8 +147,55 @@ localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
     ##          k=1        k=100        k=200        k=400        k=600 
     ## 0.0005326429 0.0329170846 0.0490732397 0.0686018224 0.0806314699
 
+### Classification
+
+``` r
+X <- classificationData
+
+ids_training <- sample(colnames(X), 90)
+ids_testing <- setdiff(colnames(X), ids_training)
+
+trainingSample <- X[,ids_training]
+testSample <- X[,ids_testing]; colnames(testSample) <- NULL #blind 
+classNames <- c("G1", "G2")
+
+classification_results <- localizationClassifier(trainingSample, testSample, classNames, k_opt = 3)
+
+checking <- data.frame(real_classs = ids_testing, 
+                      predicted_class =classification_results$test$predicted_class)
+```
+
+### Outlier detection
+
+``` r
+X <- outlierData
+
+outliers <- outlierLocalizationDistance(X, local_rule = 0.95, whisker_rule = 1.5)
+
+outliers$outliers_ld_rule
+```
+
+    ## [1] "1_magnitude" "1_shape"     "2_magnitude" "2_shape"
+
+Plot results,
+
+``` r
+df_functions <- data.frame(ids = rep(colnames(X), each = nrow(X)),
+                           y = c(X),
+                           x = rep(seq(from = 0, to = 1, length.out = nrow(X)), ncol(X)))
+                           
+
+functions_plot <- ggplot(df_functions) + 
+                  geom_line(aes(x = x, y = y, group = ids), 
+                            color = "black") + 
+                  xlab("t") + 
+  theme(legend.position = "bottom")+
+                  geom_line(data = df_functions[df_functions$ids %in% outliers$outliers_ld_rule,], aes(x = x, y = y, group = ids, color = ids), size = 1) +
+  guides(color = guide_legend(title="Detected outliers"))
+```
+
 References
 ----------
 
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization
-processes for functional data analysis (submitted)
+processes for functional data analysis (submitted).
