@@ -25,11 +25,11 @@ localFDA
 
 ## Overview
 
-Software companion for the paper "Localization processes for functional data analysis" by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, (2020) <arXiv:2007.16059>. It provides the code for computing localization processes and localization distances. 
+Software companion for the paper "Localization processes for functional data analysis" by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, (2020) <arXiv:2007.16059>. It provides the code for computing localization processes and localization distances and their application to classification and outlier detection problems.
 
 ## Installation 
 
-```{r, eval = TRUE, message = FALSE}
+```{r, message = FALSE}
 #install the package
 devtools::install_github("aefdz/localFDA")
 ```
