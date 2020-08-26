@@ -25,11 +25,11 @@ localFDA
 
 ## Overview
 
-Software companion for the paper "Localization processes for functional data analysis" by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, 2020. It provides the code for computing localization processes and localization distances. 
+Software companion for the paper "Localization processes for functional data analysis" by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, (2020) <arXiv:2007.16059>. It provides the code for computing localization processes and localization distances. 
 
 ## Installation 
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE}
 #install the package
 devtools::install_github("aefdz/localFDA")
 ```
@@ -158,7 +158,7 @@ checking <- data.frame(real_classs = ids_testing,
 ```{r}
 X <- outlierData
 
-outliers <- outlierLocalizationDistance(X, local_rule = 0.95, whisker_rule = 1.5)
+outliers <- outlierLocalizationDistance(X, localrule = 0.95, whiskerrule = 1.5)
 
 outliers$outliers_ld_rule
 ```
@@ -185,4 +185,4 @@ df_functions
 
 ## References
 
-Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
+Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis [<arXiv:2007.16059>]<https://arxiv.org/abs/2007.16059>.
