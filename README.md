@@ -4,15 +4,17 @@ localFDA
 <!-- badges: start -->
 
 [![License](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Travis build
+status](https://travis-ci.com/aefdz/localFDA.svg?branch=master)](https://travis-ci.com/aefdz/localFDA)
 <!-- badges: end -->
 
 Overview
 --------
 
 Software companion for the paper “Localization processes for functional
-data analysis” by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, 2020.
-It provides the code for computing localization processes and
-localization distances.
+data analysis” by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, (2020)
+\<arXiv:2007.16059\>. It provides the code for computing localization
+processes and localization distances.
 
 Installation
 ------------
@@ -22,27 +24,15 @@ Installation
 devtools::install_github("aefdz/localFDA")
 ```
 
-    ## Downloading GitHub repo aefdz/localFDA@master
-
-    ##          checking for file 'C:\Users\anton\AppData\Local\Temp\Rtmpuw3Qr3\remotes41a459055bd7\aefdz-localFDA-fbe2a84/DESCRIPTION' ...  v  checking for file 'C:\Users\anton\AppData\Local\Temp\Rtmpuw3Qr3\remotes41a459055bd7\aefdz-localFDA-fbe2a84/DESCRIPTION' (662ms)
+    ##          checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpuElHEG\remotes1a9c6b1a76c0\aefdz-localFDA-3e63025/DESCRIPTION' ...  v  checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpuElHEG\remotes1a9c6b1a76c0\aefdz-localFDA-3e63025/DESCRIPTION' (507ms)
     ##       -  preparing 'localFDA':
     ##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-    ##   Warning:     Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:16: unknown macro '\item'
-    ##    Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:19: unexpected section header '\value'
-    ##    Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:22: unexpected section header '\description'
-    ##    Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:25: unexpected section header '\examples'
-    ##    Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:30: unexpected section header '\references'
-    ##      Warning: C:/Users/anton/AppData/Local/Temp/Rtmpk7tjnF/Rbuild27c86b7077cd/localFDA/man/outlierLocalizationDistance.Rd:33: unexpected END_OF_INPUT '
-    ##    '
-    ##       -  checking for LF line-endings in source and make files and shell scripts
-    ##       -  checking for empty or unneeded directories
+    ##       -  checking for LF line-endings in source and make files and shell scripts (374ms)
+    ##   -  checking for empty or unneeded directories
     ##       -  looking to see if a 'data/datalist' file should be added
-    ##       -  building 'localFDA_0.1.0.tar.gz'
+    ##       -  building 'localFDA_0.0.0.9000.tar.gz'
     ##      
     ## 
-
-    ## Installing package into 'C:/Users/anton/Documents/R/win-library/3.6'
-    ## (as 'lib' is unspecified)
 
 ``` r
 #load the package
@@ -189,7 +179,7 @@ checking <- data.frame(real_classs = ids_testing,
 ``` r
 X <- outlierData
 
-outliers <- outlierLocalizationDistance(X, local_rule = 0.95, whisker_rule = 1.5)
+outliers <- outlierLocalizationDistance(X, localrule = 0.95, whiskerrule = 1.5)
 
 outliers$outliers_ld_rule
 ```
@@ -11021,4 +11011,5 @@ References
 ----------
 
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization
-processes for functional data analysis (submitted).
+processes for functional data analysis
+\[\<arXiv:2007.16059\>\]<a href="https://arxiv.org/abs/2007.16059" class="uri">https://arxiv.org/abs/2007.16059</a>.
