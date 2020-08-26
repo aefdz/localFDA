@@ -185,4 +185,4 @@ functions_plot
 
 ## References
 
-Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis [<arXiv:2007.16059>]<https://arxiv.org/abs/2007.16059>.
+Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis [https://arxiv.org/abs/2007.16059]<https://arxiv.org/abs/2007.16059>.

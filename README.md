@@ -14,7 +14,8 @@ Overview
 Software companion for the paper “Localization processes for functional
 data analysis” by Elías, Antonio, Jiménez, Raúl, and Yukich, Joe, (2020)
 \<arXiv:2007.16059\>. It provides the code for computing localization
-processes and localization distances.
+processes and localization distances and their application to
+classification and outlier detection problems.
 
 Installation
 ------------
@@ -24,7 +25,7 @@ Installation
 devtools::install_github("aefdz/localFDA")
 ```
 
-    ##          checking for file 'C:\Users\anton\AppData\Local\Temp\RtmporkyAC\remotes2a347944483f\aefdz-localFDA-3fd4807/DESCRIPTION' ...  v  checking for file 'C:\Users\anton\AppData\Local\Temp\RtmporkyAC\remotes2a347944483f\aefdz-localFDA-3fd4807/DESCRIPTION' (697ms)
+    ##          checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpYB9ZcU\remotes1e785f003831\aefdz-localFDA-68220fe/DESCRIPTION' ...  v  checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpYB9ZcU\remotes1e785f003831\aefdz-localFDA-68220fe/DESCRIPTION' (687ms)
     ##       -  preparing 'localFDA':
     ##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
     ##       -  checking for LF line-endings in source and make files and shell scripts
@@ -212,4 +213,4 @@ References
 
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization
 processes for functional data analysis
-\[\<arXiv:2007.16059\>\]<a href="https://arxiv.org/abs/2007.16059" class="uri">https://arxiv.org/abs/2007.16059</a>.
+\[<a href="https://arxiv.org/abs/2007.16059" class="uri">https://arxiv.org/abs/2007.16059</a>\]<a href="https://arxiv.org/abs/2007.16059" class="uri">https://arxiv.org/abs/2007.16059</a>.
