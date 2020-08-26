@@ -4,14 +4,14 @@
 \alias{localizationStatistics}
 \title{Localization Distances Statistics}
 \usage{
-localizationStatistics(y, robustify = TRUE, whisker_rule)
+localizationStatistics(y, robustify = TRUE, whiskerrule)
 }
 \arguments{
 \item{y}{matrix p by n, being n the number of functions and p the number of grid points.}
 
 \item{robustify}{if TRUE the mean and standard deviation are estimated with a the trimmed sample. Default is TRUE.}
 
-\item{whisker_rule}{Range parameter for the univariate boxplot detection rule. Default = 3.}
+\item{whiskerrule}{Range parameter for the univariate boxplot detection rule. Default = 3.}
 }
 \value{
 a list with the localization distances of each function (localizationDistances),

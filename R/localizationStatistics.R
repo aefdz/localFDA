@@ -4,7 +4,7 @@
 #'
 #' @param y matrix p by n, being n the number of functions and p the number of grid points.
 #' @param robustify if TRUE the mean and standard deviation are estimated with a the trimmed sample. Default is TRUE.
-#' @param whisker_rule Range parameter for the univariate boxplot detection rule. Default = 3.
+#' @param whiskerrule Range parameter for the univariate boxplot detection rule. Default = 3.
 #' @return a list with the localization distances of each function (localizationDistances),
 #' the estimated mean (mean) and standard deviation (sd).
 #'
@@ -15,8 +15,10 @@
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'
+#' @importFrom stats sd
+#' @importFrom graphics boxplot
 #' @export
-localizationStatistics <- function(y, robustify = TRUE, whisker_rule){
+localizationStatistics <- function(y, robustify = TRUE, whiskerrule){
 
   l_estimator <- matrix(NA, ncol = c(ncol(y)-1), nrow = ncol(y))
   rownames(l_estimator) <- colnames(y)
@@ -28,13 +30,13 @@ localizationStatistics <- function(y, robustify = TRUE, whisker_rule){
   colnames(localizationDistances_all) <- paste0("k=", 1:c(dim(y)[2]-1))
 
   if(robustify == TRUE){
-    if(missing(whisker_rule)){whisker_rule <- 3}
+    if(missing(whiskerrule)){whiskerrule <- 3}
 
-    outliers <- unique(unlist(apply(localizationDistances_all, 2, function(x) which(x %in% boxplot(x, plot = FALSE, range = whisker_rule)$out))))
+    outliers <- unique(unlist(apply(localizationDistances_all, 2, function(x) which(x %in% graphics::boxplot(x, plot = FALSE, range = whiskerrule)$out))))
 
     output <- list(localizationDistances = localizationDistances_all,
                    trim_mean = colMeans(localizationDistances_all[!rownames(localizationDistances_all) %in% outliers,]),
-                   trim_sd = apply(localizationDistances_all[!rownames(localizationDistances_all) %in% outliers,], 2, sd))
+                   trim_sd = apply(localizationDistances_all[!rownames(localizationDistances_all) %in% outliers,], 2, stats::sd))
   }else{
     output <- list(localizationDistances = localizationDistances_all,
                    mean = colMeans(localizationDistances_all),

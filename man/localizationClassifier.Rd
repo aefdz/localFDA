@@ -12,12 +12,12 @@ The colnames of the trainingSample matrix are i_groupName where i goes from 1 to
 
 \item{testSample}{matrix p by n, being n the number of functions to classify and p the number of grid points.}
 
+\item{classNames}{character vector with the group names.}
+
 \item{k_opt}{Maximum order of the localization processes used in the classification rule.}
 
 \item{g_pi}{Vector of size g with a priori probabilities for the bayes classifier. If it is missing the probability is defined by
 the proportion of curves of each group.}
-
-\item{className}{character vector with the group names.}
 }
 \value{
 Two named training and test. Training contains the estimations made with the training sample

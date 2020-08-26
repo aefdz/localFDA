@@ -5,7 +5,7 @@
 #' @param trainingSample matrix p by n, being n the number of functions and p the number of grid points.
 #' The colnames of the trainingSample matrix are i_groupName where i goes from 1 to the sample size of the group.
 #' @param testSample matrix p by n, being n the number of functions to classify and p the number of grid points.
-#' @param className  character vector with the group names.
+#' @param classNames  character vector with the group names.
 #' @param k_opt Maximum order of the localization processes used in the classification rule.
 #' @param g_pi Vector of size g with a priori probabilities for the bayes classifier. If it is missing the probability is defined by
 #' the proportion of curves of each group.
@@ -55,7 +55,7 @@ localizationClassifier <- function(trainingSample, testSample, classNames, k_opt
       aux_localizationDistances_incoming[[g]] <- localizationDistances(data_plus_new, "new_data")
       names(aux_localizationDistances_incoming)[g] <- classNames[g]
 
-      aux_classifier_incoming[[g]] <- g_pi[g]*sapply(1:c(g_size-1), function(x) dnorm(aux_localizationDistances_incoming[[g]][x],
+      aux_classifier_incoming[[g]] <- g_pi[g]*sapply(1:c(g_size-1), function(x) stats::dnorm(aux_localizationDistances_incoming[[g]][x],
                                                                                       mean = unlist(g_localizationStatistics[2,g])[x],
                                                                                       sd = unlist(g_localizationStatistics[3,g])[x]))
       names(aux_classifier_incoming)[g] <- classNames[g]
