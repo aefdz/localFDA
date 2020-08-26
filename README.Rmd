@@ -179,7 +179,7 @@ functions_plot <- ggplot(df_functions) +
                   geom_line(data = df_functions[df_functions$ids %in% outliers$outliers_ld_rule,], aes(x = x, y = y, group = ids, color = ids), size = 1) +
   guides(color = guide_legend(title="Detected outliers"))
 
-df_functions 
+functions_plot 
 
 ```
 
