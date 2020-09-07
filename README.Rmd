@@ -151,6 +151,8 @@ classification_results <- localizationClassifier(trainingSample, testSample, cla
 
 checking <- data.frame(real_classs = ids_testing, 
                       predicted_class =classification_results$test$predicted_class)
+
+checking
 ```
 
 ### Outlier detection

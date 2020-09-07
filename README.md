@@ -25,11 +25,11 @@ Installation
 devtools::install_github("aefdz/localFDA")
 ```
 
-    ##          checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpYB9ZcU\remotes1e785f003831\aefdz-localFDA-68220fe/DESCRIPTION' ...  v  checking for file 'C:\Users\anton\AppData\Local\Temp\RtmpYB9ZcU\remotes1e785f003831\aefdz-localFDA-68220fe/DESCRIPTION' (687ms)
+    ##       v  checking for file 'C:\Users\anton\AppData\Local\Temp\Rtmp4617Sq\remotes2e00503a197c\aefdz-localFDA-25b0d40/DESCRIPTION' (425ms)
     ##       -  preparing 'localFDA':
     ##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
     ##       -  checking for LF line-endings in source and make files and shell scripts
-    ##       -  checking for empty or unneeded directories
+    ##   -  checking for empty or unneeded directories
     ##       -  looking to see if a 'data/datalist' file should be added
     ##       -  building 'localFDA_0.0.0.9000.tar.gz'
     ##      
@@ -173,7 +173,21 @@ classification_results <- localizationClassifier(trainingSample, testSample, cla
 
 checking <- data.frame(real_classs = ids_testing, 
                       predicted_class =classification_results$test$predicted_class)
+
+checking
 ```
+
+    ##    real_classs predicted_class
+    ## 1        12_G1              G1
+    ## 2        14_G1              G1
+    ## 3        21_G1              G1
+    ## 4        44_G1              G1
+    ## 5        54_G2              G2
+    ## 6        56_G2              G2
+    ## 7        72_G2              G2
+    ## 8        81_G2              G2
+    ## 9        94_G2              G2
+    ## 10      100_G2              G2
 
 ### Outlier detection
 
