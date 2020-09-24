@@ -4,3 +4,4 @@
 ^README.*$
 ^LICENSE\.md$
 ^\.travis\.yml$
+^CRAN-RELEASE$
