@@ -6,5 +6,7 @@
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'
 #' @examples
+#' \dontrun{
 #' matplot(outlierData, type = "l")
+#' }
 "outlierData"

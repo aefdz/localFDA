@@ -7,7 +7,9 @@
 #' @return a list with one element, \code{lc}, a matrix of size p x (n-1), being the (n-1) columns the localization processes of its corresponding order.
 #'
 #' @examples
+#' \dontrun{
 #' localizationProcesses_1 <- localizationProcesses(exampleData, y0 = "1")
+#' }
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

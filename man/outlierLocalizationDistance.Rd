@@ -22,8 +22,10 @@ A list
 Compute the localization distances of order k of the curve \code{y0}.
 }
 \examples{
+\dontrun{
 outliers <- outlierLocalizationDistance(outlierData, localrule = 0.9, whiskerrule = 3)
 outliers$outliers_ld_rule
+}
 
 }
 \references{

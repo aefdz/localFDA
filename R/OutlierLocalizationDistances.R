@@ -11,8 +11,10 @@
 #' @return A list
 #'
 #' @examples
+#' \dontrun{
 #' outliers <- outlierLocalizationDistance(outlierData, localrule = 0.9, whiskerrule = 3)
 #' outliers$outliers_ld_rule
+#' }
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

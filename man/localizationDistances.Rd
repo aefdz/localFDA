@@ -18,7 +18,9 @@ a vector of length (n-1), being the localization distance of its corresponding o
 Compute the localization distances of order k of the curve \code{y0}.
 }
 \examples{
+\dontrun{
 localizationDistances_1 <- localizationDistances(exampleData, y0 = "1")
+}
 
 }
 \references{
