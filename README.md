@@ -6,9 +6,9 @@ localFDA
 [![License](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Travis build
 status](https://travis-ci.com/aefdz/localFDA.svg?branch=master)](https://travis-ci.com/aefdz/localFDA)
-[![](https://www.r-pkg.org/badges/version/goffda?color=green)](https://cran.r-project.org/package=localFDA)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/goffda?color=green)](https://cran.r-project.org/package=localFDA)
-[![](http://cranlogs.r-pkg.org/badges/last-month/goffda?color=green)](https://cran.r-project.org/package=localFDA)
+[![](https://www.r-pkg.org/badges/version/localFDA?color=green)](https://cran.r-project.org/package=localFDA)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/localFDA?color=green)](https://cran.r-project.org/package=localFDA)
+[![](http://cranlogs.r-pkg.org/badges/last-month/localFDA?color=green)](https://cran.r-project.org/package=localFDA)
 <!-- badges: end -->
 
 Overview
