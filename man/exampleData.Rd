@@ -14,9 +14,7 @@ exampleData
 Functional Gaussian processes.
 }
 \examples{
-\dontrun{
 matplot(exampleData, type = "l")
-}
 }
 \references{
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).

@@ -15,9 +15,7 @@ classificationData
 Two groups of Gaussian processes with different mean values
 }
 \examples{
-\dontrun{
 matplot(classificationData, type = "l")
-}
 }
 \references{
 Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).

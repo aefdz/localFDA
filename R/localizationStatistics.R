@@ -9,11 +9,9 @@
 #' the estimated mean (mean) and standard deviation (sd).
 #'
 #' @examples
-#' \dontrun{
-#' localizationStatistics_full <- localizationStatistics(exampleData, robustify = TRUE)
-#' localizationStatistics_full$trim_mean[c(1, 100, 200, 400, 600)]
-#' localizationStatistics_full$trim_sd[c(1, 100, 200, 400, 600)]
-#' }
+#' localizationStatistics_full <- localizationStatistics(exampleData[,1:101], robustify = TRUE)
+#' localizationStatistics_full$trim_mean[c(1, 25, 50 ,75, 100)]
+#' localizationStatistics_full$trim_sd[c(1, 25, 50 ,75, 100)]
 #'
 #' @references Elías, Antonio, Jiménez, Raúl and Yukich, Joe (2020). Localization processes for functional data analysis (submitted).
 #'

@@ -1,5 +1,5 @@
 ## Resubmission
-This is a resubmission. In this version I have reduce each example to less than 5 sec.
+This is a resubmission. In this version I have reduced each example to less than 5 sec.
 
 ## Test environments
 * local Windows 10 Home, R 3.6.3 and devel
